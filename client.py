@@ -10,12 +10,18 @@ import os
 from PIL import Image, ImageDraw
 import pystray
 
-CLOUD_SERVER_URL = "http://localhost:8000" # frontend server URL
+CLOUD_SERVER_URL = "https://sharp-search-pc.vercel.app" # frontend server URL
 
 def run_sharp_search():
     try:
+        keyboard.release('ctrl')
+        keyboard.release('alt')
+        keyboard.release('x')
+        
         time.sleep(0.05)
-        pyautogui.hotkey('ctrl', 'c')
+        
+        keyboard.send('ctrl+c')
+        
         time.sleep(0.15)
 
         keyword = pyperclip.paste().strip()
